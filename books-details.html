@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Book Details</h1>
+    <div id="book-details"></div>
+    <a href="index.html" class="back-button">Back to Home</a>
+
+    <script>
+        const books = [
+            { id: 1, title: "Book 1", author: "Author 1", price: "$10", description: "This is a great book about adventure." },
+            { id: 2, title: "Book 2", author: "Author 2", price: "$15", description: "A thrilling mystery novel full of suspense." },
+            { id: 3, title: "Book 3", author: "Author 3", price: "$20", description: "Learn about the wonders of science in this book." },
+            { id: 4, title: "Book 4", author: "Author 4", price: "$12", description: "A heartwarming story about friendship." }
+        ];
+
+        function getBookDetails() {
+            const params = new URLSearchParams(window.location.search);
+            const bookId = parseInt(params.get("id"));
+
+            const book = books.find(b => b.id === bookId);
+            if (book) {
+                document.getElementById("book-details").innerHTML = `
+                    <h2>${book.title}</h2>
+                    <p><strong>Author:</strong> ${book.author}</p>
+                    <p><strong>Price:</strong> ${book.price}</p>
+                    <p><strong>Description:</strong> ${book.description}</p>
+                `;
+            } else {
+                document.getElementById("book-details").innerHTML = "<p>Book not found.</p>";
+            }
+        }
+
+        window.onload = getBookDetails;
+    </script>
+</body>
+</html>
