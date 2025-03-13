@@ -3,40 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Details</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Book Store Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10;
+            padding: 10;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .book-details {
+            background: #fff;
+            padding: 250px;
+            margin: 50px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .book-details img {
+            max-width: 200px;
+            float: left;
+            margin-right: 10px;
+        }
+        .book-info {
+            overflow: hidden;
+        }
+        .book-info h2 {
+            margin: 0;
+        }
+        .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Book Details</h1>
-    <div id="book-details"></div>
-    <a href="index.html" class="back-button">Back to Home</a>
-
-    <script>
-        const books = [
-            { id: 1, title: "Book 1", author: "Author 1", price: "$10", description: "This is a great book about adventure." },
-            { id: 2, title: "Book 2", author: "Author 2", price: "$15", description: "A thrilling mystery novel full of suspense." },
-            { id: 3, title: "Book 3", author: "Author 3", price: "$20", description: "Learn about the wonders of science in this book." },
-            { id: 4, title: "Book 4", author: "Author 4", price: "$12", description: "A heartwarming story about friendship." }
-        ];
-
-        function getBookDetails() {
-            const params = new URLSearchParams(window.location.search);
-            const bookId = parseInt(params.get("id"));
-
-            const book = books.find(b => b.id === bookId);
-            if (book) {
-                document.getElementById("book-details").innerHTML = `
-                    <h2>${book.title}</h2>
-                    <p><strong>Author:</strong> ${book.author}</p>
-                    <p><strong>Price:</strong> ${book.price}</p>
-                    <p><strong>Description:</strong> ${book.description}</p>
-                `;
-            } else {
-                document.getElementById("book-details").innerHTML = "<p>Book not found.</p>";
-            }
-        }
-
-        window.onload = getBookDetails;
-    </script>
+    <div class="header">
+        <h1>Book Details</h1>
+    </div>
+    <div class="container">
+        <div class="book-details">
+            <img src="tgg.jpg" alt="Book Cover">
+            <div class="book-info">
+                <h2>The Great Gatsby</h2>
+                <p><strong>Author:</strong> F. Scott Fitzgerald</p>
+                <p><strong>Price:</strong> $10.99</p>
+                <p><strong>Description:</strong> A novel set in the 1920s that explores themes of wealth, society, and the American Dream.</p>
+                <button class="btn">Buy Now</button>
+                <link rel="stylesheet" href="style.css">
+                
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2025 Bangla Book Store. All rights reserved.</p>
+    </div>
 </body>
 </html>
